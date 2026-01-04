@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DreamJar - Save With a Purpose</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+            line-height: 1.6;
+            color: #1a1a2e;
+            background: linear-gradient(135deg, #3A9CA4 0%, #2D7D8A 100%);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 40px 20px;
+        }
+        .container {
+            max-width: 500px;
+            text-align: center;
+        }
+        .logo {
+            font-size: 80px;
+            margin-bottom: 20px;
+            animation: float 3s ease-in-out infinite;
+        }
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+        h1 {
+            color: white;
+            font-size: 42px;
+            font-weight: 700;
+            margin-bottom: 10px;
+        }
+        .tagline {
+            color: rgba(255,255,255,0.9);
+            font-size: 20px;
+            margin-bottom: 40px;
+        }
+        .card {
+            background: white;
+            border-radius: 20px;
+            padding: 40px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.2);
+        }
+        .card p {
+            color: #495057;
+            font-size: 16px;
+            margin-bottom: 30px;
+        }
+        .links {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+        .link {
+            display: block;
+            padding: 14px 24px;
+            border-radius: 12px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 16px;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+        .link:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+        }
+        .link-primary {
+            background: linear-gradient(135deg, #3A9CA4 0%, #2D7D8A 100%);
+            color: white;
+        }
+        .link-secondary {
+            background: #f8f9fa;
+            color: #3A9CA4;
+        }
+        .app-store {
+            margin-top: 30px;
+        }
+        .app-store img {
+            height: 50px;
+        }
+        .footer {
+            margin-top: 30px;
+            color: rgba(255,255,255,0.7);
+            font-size: 14px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="logo">🫙</div>
+        <h1>DreamJar</h1>
+        <p class="tagline">Save With a Purpose</p>
+
+        <div class="card">
+            <p>Your personal savings companion. Set meaningful goals, track your progress, and make your dreams come true.</p>
+
+            <div class="links">
+                <a href="support.html" class="link link-primary">Get Support</a>
+                <a href="privacy-policy.html" class="link link-secondary">Privacy Policy</a>
+            </div>
+
+            <!-- Uncomment when app is live
+            <div class="app-store">
+                <a href="https://apps.apple.com/app/dreamjar/idXXXXXXXXXX">
+                    <img src="https://developer.apple.com/assets/elements/badges/download-on-the-app-store.svg" alt="Download on the App Store">
+                </a>
+            </div>
+            -->
+        </div>
+
+        <p class="footer">&copy; 2026 Old Dog Devs</p>
+    </div>
+</body>
+</html>
