@@ -912,7 +912,7 @@
                     DreamsJar connects your savings goals to the moments that matter most. Track your progress, celebrate milestones, and stay motivated by keeping your "why" front and center.
                 </p>
                 
-                <form class="waitlist-form" id="waitlist-form-hero" action="https://eocampaign1.com/form/5ae782e6-ea5e-11f0-a35b-21a233246f48" method="POST" target="hidden-iframe">
+                <form class="waitlist-form" id="waitlist-form-hero">
                     <div class="email-input-wrapper">
                         <svg class="email-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                             <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
@@ -927,7 +927,6 @@
                         </svg>
                     </button>
                 </form>
-                <iframe name="hidden-iframe" style="display:none;"></iframe>
 
                 <div class="success-message" id="success-hero">
                     <div class="success-icon">
@@ -1030,16 +1029,36 @@
     </footer>
 
     <script>
-        // Show success message when form is submitted
-        document.getElementById('waitlist-form-hero').addEventListener('submit', function() {
-            const form = this;
-            const success = document.getElementById('success-hero');
+        // Handle form submission
+        document.getElementById('waitlist-form-hero').addEventListener('submit', async function(e) {
+            e.preventDefault();
 
-            // Short delay to allow form to submit to iframe
-            setTimeout(() => {
-                form.style.display = 'none';
-                success.classList.add('show');
-            }, 500);
+            const form = this;
+            const email = form.querySelector('.email-input').value;
+            const success = document.getElementById('success-hero');
+            const submitBtn = form.querySelector('.submit-btn');
+
+            // Disable button while submitting
+            submitBtn.disabled = true;
+            submitBtn.innerHTML = 'Joining...';
+
+            // Submit to EmailOctopus
+            const formData = new FormData();
+            formData.append('email_address', email);
+
+            try {
+                await fetch('https://eocampaign1.com/form/5ae782e6-ea5e-11f0-a35b-21a233246f48', {
+                    method: 'POST',
+                    body: formData,
+                    mode: 'no-cors'
+                });
+            } catch (error) {
+                console.error('Error:', error);
+            }
+
+            // Show success (we can't verify with no-cors, but request was sent)
+            form.style.display = 'none';
+            success.classList.add('show');
         });
 
         // Smooth scroll for nav CTA - scrolls to hero form
