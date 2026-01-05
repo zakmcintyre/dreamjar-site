@@ -912,13 +912,13 @@
                     DreamsJar connects your savings goals to the moments that matter most. Track your progress, celebrate milestones, and stay motivated by keeping your "why" front and center.
                 </p>
                 
-                <form class="waitlist-form" id="waitlist-form-hero">
+                <form class="waitlist-form" id="waitlist-form-hero" action="https://eocampaign1.com/form/5ae782e6-ea5e-11f0-a35b-21a233246f48" method="POST">
                     <div class="email-input-wrapper">
                         <svg class="email-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                             <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
                             <polyline points="22,6 12,13 2,6"/>
                         </svg>
-                        <input type="email" class="email-input" placeholder="Enter your email" required>
+                        <input type="email" class="email-input" name="field_0" placeholder="Enter your email" required>
                     </div>
                     <button type="submit" class="submit-btn">
                         Get Early Access
@@ -1029,55 +1029,6 @@
     </footer>
 
     <script>
-        // =====================================================
-        // EMAILOCTOPUS INTEGRATION
-        // =====================================================
-        // To connect this form to EmailOctopus:
-        //
-        // 1. Create a free account at https://emailoctopus.com
-        // 2. Create a new list called "DreamsJar Waitlist"
-        // 3. Go to Lists > Your List > Forms > Create form
-        // 4. Get your form's action URL (looks like: https://eocampaign1.com/form/XXXXXX)
-        // 5. Replace the form below with EmailOctopus embed code, OR
-        //    use the JavaScript API method shown below
-        // =====================================================
-
-        function handleSubmit(formId, successId) {
-            const form = document.getElementById(formId);
-            const success = document.getElementById(successId);
-
-            form.addEventListener('submit', async (e) => {
-                e.preventDefault();
-                const email = form.querySelector('.email-input').value;
-
-                // EmailOctopus API Integration
-                try {
-                    const response = await fetch('https://emailoctopus.com/api/1.6/lists/9a7d3a58-ea5a-11f0-a715-010b567c0da1/contacts', {
-                        method: 'POST',
-                        headers: { 'Content-Type': 'application/json' },
-                        body: JSON.stringify({
-                            api_key: 'eo_21066c90a6fc7de124f55f666f652c88430c64eddae567376ca586ea7d8dc085',
-                            email_address: email,
-                            status: 'SUBSCRIBED'
-                        })
-                    });
-                    if (!response.ok) {
-                        const errorData = await response.json();
-                        console.error('Subscription error:', errorData);
-                        // Still show success to user (email might already exist)
-                    }
-                } catch (error) {
-                    console.error('Error:', error);
-                }
-
-                // Show success message
-                form.style.display = 'none';
-                success.classList.add('show');
-            });
-        }
-
-        handleSubmit('waitlist-form-hero', 'success-hero');
-
         // Smooth scroll for nav CTA - scrolls to hero form
         document.querySelector('.nav-cta').addEventListener('click', (e) => {
             e.preventDefault();
