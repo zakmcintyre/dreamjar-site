@@ -1050,28 +1050,25 @@
                 e.preventDefault();
                 const email = form.querySelector('.email-input').value;
 
-                // =====================================================
-                // OPTION 1: EmailOctopus JavaScript API
-                // Uncomment and replace YOUR_LIST_ID and YOUR_API_KEY
-                // =====================================================
-                // try {
-                //     const response = await fetch('https://emailoctopus.com/api/1.6/lists/YOUR_LIST_ID/contacts', {
-                //         method: 'POST',
-                //         headers: { 'Content-Type': 'application/json' },
-                //         body: JSON.stringify({
-                //             api_key: 'YOUR_API_KEY',
-                //             email_address: email,
-                //             status: 'SUBSCRIBED'
-                //         })
-                //     });
-                //     if (!response.ok) throw new Error('Subscription failed');
-                // } catch (error) {
-                //     console.error('Error:', error);
-                //     return;
-                // }
-
-                // For testing: just show success (remove in production)
-                console.log('Email submitted:', email);
+                // EmailOctopus API Integration
+                try {
+                    const response = await fetch('https://emailoctopus.com/api/1.6/lists/9a7d3a58-ea5a-11f0-a715-010b567c0da1/contacts', {
+                        method: 'POST',
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify({
+                            api_key: 'eo_21066c90a6fc7de124f55f666f652c88430c64eddae567376ca586ea7d8dc085',
+                            email_address: email,
+                            status: 'SUBSCRIBED'
+                        })
+                    });
+                    if (!response.ok) {
+                        const errorData = await response.json();
+                        console.error('Subscription error:', errorData);
+                        // Still show success to user (email might already exist)
+                    }
+                } catch (error) {
+                    console.error('Error:', error);
+                }
 
                 // Show success message
                 form.style.display = 'none';
