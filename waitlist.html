@@ -319,6 +319,66 @@
             transform: translateX(3px);
         }
 
+        /* EmailOctopus Form Styling */
+        .emailoctopus-form-wrapper {
+            margin-bottom: 1.5rem;
+            animation: slideUp 1s ease-out 0.5s both;
+        }
+
+        .emailoctopus-form-wrapper input[type="email"] {
+            width: 100%;
+            padding: 1rem 1.25rem;
+            border: 2px solid var(--mint-dark);
+            border-radius: 50px;
+            font-size: 1rem;
+            font-family: 'DM Sans', sans-serif;
+            background: var(--white);
+            transition: all 0.3s ease;
+            outline: none;
+            margin-bottom: 0.75rem;
+        }
+
+        .emailoctopus-form-wrapper input[type="email"]:focus {
+            border-color: var(--teal);
+            box-shadow: 0 0 0 4px rgba(45, 106, 106, 0.1);
+        }
+
+        .emailoctopus-form-wrapper button,
+        .emailoctopus-form-wrapper input[type="submit"] {
+            width: 100%;
+            background: var(--teal);
+            color: var(--white);
+            padding: 1rem 2rem;
+            border: none;
+            border-radius: 50px;
+            font-size: 1rem;
+            font-weight: 600;
+            font-family: 'DM Sans', sans-serif;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(45, 106, 106, 0.3);
+        }
+
+        .emailoctopus-form-wrapper button:hover,
+        .emailoctopus-form-wrapper input[type="submit"]:hover {
+            background: var(--teal-dark);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(45, 106, 106, 0.4);
+        }
+
+        .emailoctopus-form-wrapper label {
+            display: none;
+        }
+
+        .emailoctopus-form-wrapper .emailoctopus-success-message {
+            background: var(--white);
+            border-radius: 16px;
+            padding: 1.5rem;
+            text-align: center;
+            color: var(--teal-dark);
+            font-weight: 600;
+        }
+
         .social-proof {
             display: flex;
             align-items: center;
@@ -912,32 +972,8 @@
                     DreamsJar connects your savings goals to the moments that matter most. Track your progress, celebrate milestones, and stay motivated by keeping your "why" front and center.
                 </p>
                 
-                <form class="waitlist-form" id="waitlist-form-hero" action="https://eocampaign1.com/form/5ae782e6-ea5e-11f0-a35b-21a233246f48" method="POST">
-                    <div class="email-input-wrapper">
-                        <svg class="email-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                            <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
-                            <polyline points="22,6 12,13 2,6"/>
-                        </svg>
-                        <input type="email" class="email-input" name="email_address" placeholder="Enter your email" required>
-                    </div>
-                    <button type="submit" class="submit-btn">
-                        Get Early Access
-                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                            <path d="M5 12h14M12 5l7 7-7 7"/>
-                        </svg>
-                    </button>
-                </form>
-
-                <div class="success-message" id="success-hero">
-                    <div class="success-icon">
-                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="3">
-                            <polyline points="20 6 9 17 4 12"/>
-                        </svg>
-                    </div>
-                    <div class="success-text">
-                        <h4>You're on the list! 🎉</h4>
-                        <p>We'll notify you when DreamsJar launches.</p>
-                    </div>
+                <div class="emailoctopus-form-wrapper">
+                    <script async src="https://eocampaign1.com/form/5ae782e6-ea5e-11f0-a35b-21a233246f48.js" data-form="5ae782e6-ea5e-11f0-a35b-21a233246f48"></script>
                 </div>
 
                 <div class="social-proof">
